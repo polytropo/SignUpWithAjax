@@ -135,3 +135,17 @@ body {
 	}
 }
 
+.border-red {
+	border-color: red;
+	color: red!important;
+}
+
+.error {
+	color: red;
+}
+
+.border-green {
+	border-color: green;
+	color: green!important;
+}
+

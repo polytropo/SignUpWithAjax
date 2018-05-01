@@ -57,9 +57,11 @@
 							<form>
 								<div class="form-group">
 									<input type="text" id="name" class="form-control" placeholder="Enter Name..."></input>
+									<div class="name-error error"></div>
 								</div>
 								<div class="form-group">
 									<input type="email" id="email" class="form-control" placeholder="Enter Email..."></input>
+									<div class="email-error error"></div>
 								</div>
 								<div class="form-group">
 									<input type="password" id="password" class="form-control" placeholder="Choose Password..."></input>
