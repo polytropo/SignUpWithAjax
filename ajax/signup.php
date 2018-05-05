@@ -15,4 +15,23 @@
 		}
 	} //close check email
 	check_email();
+
+	function signup_submit() {
+		GLOBAL $db;
+		if(isset($_GET['signup']) && $_GET['signup'] == 'true') {
+			$name = $_POST['name']; 
+			$email = $_POST['email']; 
+			$password = password_hash($_POST['password'], PASSWORD_DEFAULT); 
+			$query = $db->prepare("INSERT INTO users (name, email, password) VALUES (?,?,?)");
+			$query->execute([$name, $email, $password]);
+			if($query) { 
+				$_SESSION['user_name'] = $name;
+				echo json_encode(['error' => 'success', 'msg' => 'success.php']);
+			} else {
+				echo "There was errror!";
+			}
+		}
+	}
+
+	signup_submit();
 ?>

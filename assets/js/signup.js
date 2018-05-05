@@ -50,7 +50,7 @@ $(document).ready(function(){
 				success: function(feedback){
 					setTimeout(function(){
 						if(feedback['error'] == 'email_success') {
-							$(".email-error").html("<div class='text-success'><i class='fa fa-check-circle'> Email is available!</div>");
+							$(".email-error").html("<div class='text-success'><i class='fa fa-check-circle'></i> Email is available!</div>");
 							$("#email").addClass("border-green");
 							$("#email").removeClass("border-red");
 							email = email_store;
@@ -60,7 +60,7 @@ $(document).ready(function(){
 							$("#email").removeClass("border-green");
 							email = "";
 						}
-					}, 3000);
+					}, 1000);
 					
 				}
 			});
@@ -113,4 +113,49 @@ $(document).ready(function(){
 			confirm = confirm_store;
 		}
 	}) // Close confirm password
+
+	// === SUBMIT FORM ===
+	$("#submit").click(function() {
+		if(name.length == "") {
+			$(".name-error").html("Name is required!");
+			$("#name").addClass("border-red");
+			$("#name").removeClass("border-green");
+			name = "";
+		}
+
+		if(email.length == "") {
+		$(".email-error").html("Email is required");
+			$("#email").addClass("border-red");
+			$("#email").removeClass("border-green");
+			email = "";
+		}
+
+		if(password.length == "") {
+		$(".password-error").html("Password is required");
+			$("#password").addClass("border-red");
+			$("#password").removeClass("border-green");
+			password = "";
+		}
+
+		if(confirm.length == "") {
+		$(".confirm-error").html("Password needs to be confirmed!");
+			$("#confirm").addClass("border-red");
+			$("#confirm").removeClass("border-green");
+			confirm = "";
+		}
+
+		if(name.length != "" && email.length != "" && password.length != "" && confirm.length != "") {
+			$.ajax({
+				type: 'POST',
+				url: 'ajax/signup.php?signup=true',
+				data: $("#signup_submit").serialize(),
+				dataType: 'JSON',
+				success: function(feedback) {
+					if(feedback['error'] == "success") {
+						console.log("account is created");
+					}
+				}
+			})
+		}
+	})
 })

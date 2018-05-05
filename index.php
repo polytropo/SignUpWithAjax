@@ -54,17 +54,17 @@
 							</div>
 						</div>
 						<div class="card-body">
-							<form>
+							<form id="signup_submit">
 								<div class="form-group">
-									<input type="text" id="name" class="form-control" placeholder="Enter Name..."></input>
+									<input type="text" id="name" name="name" class="form-control" placeholder="Enter Name..."></input>
 									<div class="name-error error"></div>
 								</div>
 								<div class="form-group">
-									<input type="email" id="email" class="form-control" placeholder="Enter Email..."></input>
+									<input type="email" id="email" name="email" class="form-control" placeholder="Enter Email..." ></input>
 									<div class="email-error error"></div>
 								</div>
 								<div class="form-group">
-									<input type="password" id="password" class="form-control" placeholder="Choose Password..."></input>
+									<input type="password" id="password" name="password" class="form-control" placeholder="Choose Password..."></input>
 									<div class="password-error error"></div>
 								</div>
 								<div class="form-group">
