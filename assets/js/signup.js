@@ -37,16 +37,37 @@ $(document).ready(function(){
 			$("#email").addClass("border-red");
 			$("#email").removeClass("border-green");
 			email = "";
-		} else if (email_reg.test(email_store)) {
-			$(".email-error").html("");
-			$("#email").addClass("border-green");
-			$("#email").removeClass("border-red");
-			email = email_reg;
+		} else if(email_reg.test(email_store)) {
+			$.ajax({
+				type: 'POST',
+				url: 'ajax/signup.php',
+				dataType: 'JSON',
+				beforeSend: function() {
+					$(".email-error").html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
+				},
+				data: {'check_email': email_store},
+				success: function(feedback){
+					setTimeout(function(){
+						if(feedback['error'] == 'email_success') {
+							$(".email-error").html("<div class='text-success'><i class='fa fa-check-circle'> Email is available!</div>");
+							$("#email").addClass("border-green");
+							$("#email").removeClass("border-red");
+							email = email_store;
+						}else if(feedback['error'] == 'email_failed') {
+							$(".email-error").html("Sorry this email is already registered!");
+							$("#email").addClass("border-red");
+							$("#email").removeClass("border-green");
+							email = "";
+						}
+					}, 3000);
+					
+				}
+			});
 		} else {
 			$(".email-error").html("Invalid Email format!");
 			$("#email").addClass("border-red");
 			$("#email").removeClass("border-green");
 			email = "";
 		}	
-	})
+	}) //Close email validation
 })
