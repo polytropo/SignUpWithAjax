@@ -2,10 +2,11 @@ $(document).ready(function(){
 	var name = "";
 	var email = "";
 	var password = "";
-	var confirm = "";
+	var confirm = ""; 
 	var name_reg = /^[a-z ]+$/i;
 
 	var email_reg = /^[a-z]+[0-9a-zA-Z_\.]*@[a-z_]+\.[a-z]+$/;
+	var password_reg = (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$/);
 	//  === Name Validations ===
 	$("#name").focusout(function(){
 		var store = $.trim($("#name").val());
@@ -70,4 +71,46 @@ $(document).ready(function(){
 			email = "";
 		}	
 	}) //Close email validation
+
+	// Validate Password
+	$("#password").focusout(function() {
+		var password_store = $.trim($("#password").val());
+		if(password_store.length == "") {
+			$(".password-error").html("Password is required");
+			$("#password").addClass("border-red");
+			$("#password").removeClass("border-green");
+			password = "";
+		} else if(password_reg.test(password_store)) {
+			$(".password-error").html("<div class='text-success'><i class='fa fa-check-circle'></i> Your password meets the criteria!</div>");
+			$("#password").addClass("border-green");
+			$("#password").removeClass("border-red");
+			password = password_store;
+		} else {
+			$(".password-error").html("Password needs to be between 8 and 20 characters long. At least 1 upper and one lower case and 1 nubmer required!");
+			$("#password").addClass("border-red");
+			$("#password").removeClass("border-green");
+			password = "";
+		}
+	}) // Close Password Validations
+
+	// Validate Confirm Password
+	$("#confirm").focusout(function() {
+		var confirm_store = $.trim($("#confirm").val());
+		if(confirm_store.length == "") {
+			$(".confirm-error").html("You need to confirm your password!");
+			$("#confirm").addClass("border-red");
+			$("#confirm").removeClass("border-green");
+			confirm = "";
+		} else if(confirm_store != password) {
+			$(".confirm-error").html("Passwords do not match!");
+			$("#confirm").addClass("border-red");
+			$("#confirm").removeClass("border-green");
+			confirm = "";
+		} else {
+			$(".confirm-error").html("<div class='text-success'><i class='fa fa-check-circle'></i> Passwords match!</div>");
+			$("#confirm").addClass("border-green");
+			$("#confirm").removeClass("border-red");
+			confirm = confirm_store;
+		}
+	}) // Close confirm password
 })

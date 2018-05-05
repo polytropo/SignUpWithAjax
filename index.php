@@ -65,9 +65,11 @@
 								</div>
 								<div class="form-group">
 									<input type="password" id="password" class="form-control" placeholder="Choose Password..."></input>
+									<div class="password-error error"></div>
 								</div>
 								<div class="form-group">
 									<input type="password" id="confirm" class="form-control" placeholder="Confirm Password..."></input>
+									<div class="confirm-error error"></div>
 								</div>
 								<div class="form-group">
 									<button type="button" id="submit" class="btn btn-success btn-block form-btn">Create Account</button>
