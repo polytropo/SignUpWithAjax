@@ -10,23 +10,7 @@
 	
 </head>
 <body>
-	<!-- === NAVBAR === -->
-	<nav class="navbar navbar-expand-sm navbar-light bg-light custom-nav">
-		<div class="container">
-			<a href="#" class="navbar-brand">Primoz SignUP and Login</a>
-			<button type="button" class="navbar-toggler" data-target="#mynav" data-toggle="collapse">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="mynav">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a href="#" class="nav-link">Home</a>
-					</li>
-				</ul>
-			</div>	
-		</div>
-	</nav>
-	<!-- nav close -->
+	<?php include 'parts/nav.php'; ?>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 content">
@@ -55,6 +39,9 @@
 						</div>
 						<div class="card-body">
 							<form id="signup_submit">
+								<div class="form-group show_progress">
+									
+								</div>
 								<div class="form-group">
 									<input type="text" id="name" name="name" class="form-control" placeholder="Enter Name..."></input>
 									<div class="name-error error"></div>
@@ -97,15 +84,20 @@
 							</div>
 						</div>
 						<div class="card-body">
-							<form>
+							<form id="login-submit-form">
 								<div class="form-group">
-									<input type="email" id="email_log" class="form-control" placeholder="Enter Email..."></input>
+									<div class="login-error error"></div>
 								</div>
 								<div class="form-group">
-									<input type="password" id="password_log" class="form-control" placeholder="Choose Password..."></input>
+									<input type="email" id="login-email" name="login_email" class="form-control" placeholder="Enter Email..."></input>
+									<div class="login-email-error error"></div>
 								</div>
 								<div class="form-group">
-									<button type="button" id="login" class="btn btn-success btn-block form-btn">Login</button>
+									<input type="password" id="login-password" name="login_password" class="form-control" placeholder="Choose Password..."></input>
+									<div class="login-password-error error"></div>
+								</div>
+								<div class="form-group">
+									<button type="button" id="login-submit" class="btn btn-success btn-block form-btn">Login</button>
 								</div>
 								<div class="form-group">
 									<a href="#" id="signup">Create New Account?</a>
@@ -128,5 +120,6 @@
 	<script src="assets/js/simple.js" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="assets/js/valid.js" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="assets/js/signup.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="assets/js/login.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

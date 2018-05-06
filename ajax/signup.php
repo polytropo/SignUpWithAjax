@@ -25,7 +25,7 @@
 			$query = $db->prepare("INSERT INTO users (name, email, password) VALUES (?,?,?)");
 			$query->execute([$name, $email, $password]);
 			if($query) { 
-				$_SESSION['user_name'] = $name;
+				$_SESSION['email'] = $email;
 				echo json_encode(['error' => 'success', 'msg' => 'success.php']);
 			} else {
 				echo "There was errror!";
