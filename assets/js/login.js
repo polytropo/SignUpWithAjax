@@ -57,7 +57,7 @@ $(document).ready(function() {
 				dataType: "JSON",
 				success: function(feedback) {
 					if(feedback['error'] == 'success') {
-						(".login-error").html("");
+						$(".login-error").html("");
 						$("#login-email").addClass("border-green");
 						$("#login-email").removeClass("border-red");
 						$("#login-password").addClass("border-green");
