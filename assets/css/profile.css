@@ -1,0 +1,68 @@
+.left-area {
+	background-color: #fff;
+	padding: 15px;
+	position: relative;
+	overflow: hidden;
+}
+
+.left-area::before {
+	position: absolute;
+	content: "Profile";
+	top: 0;
+	left: -35px;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	transform: rotate(-40deg);
+	background-color: #f93d67;
+	color: #fff;
+
+}
+
+.right-area {
+	background-color: #fff;
+	padding: 15px;
+	overflow: hidden;
+	position: relative;
+}
+
+.right-area::before {
+	position: absolute;
+	content: "Details";
+	top: 0;
+	right: -35px;
+	/* top: 10px; */
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	transform: rotate(40deg);
+	background-color: #7047d7;
+	color: #fff;
+
+}
+
+.contents {
+	margin-top: 50px;
+}
+
+.user_img {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	border-radius: 50%;
+}
+
+.update-photoLi {
+	margin-top: 20px;
+}
+
+.list-group-item:hover {
+	background-color: #7047d7;
+}
+
+.list-group-item:hover a {
+	color: #fff;
+	text-decoration: none;
+}
