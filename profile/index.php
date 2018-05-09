@@ -1,4 +1,8 @@
 <?php include 'functions/func.php'; ?>
+<?php if(!isset($_SESSION['user_id'])): ?>
+	<?php $_SESSION['unathorized'] = "Please Enter Email and Password"; ?>
+	<?php header("location:../index.php"); ?>
+<?php endif; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

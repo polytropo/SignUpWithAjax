@@ -8,7 +8,9 @@
 			<div class="collapse navbar-collapse" id="mynav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a href="#" class="nav-link">Home</a>
+						<?php if(isset($_SESSION['user_id'])): ?>
+						<a href="logout.php" class="nav-link btn-success logout-btn">Logout</a>
+						<?php endif; ?>
 					</li>
 				</ul>
 			</div>	

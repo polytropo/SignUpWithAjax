@@ -1,3 +1,5 @@
+<?php include 'connection/db.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,14 @@
 	
 </head>
 <body>
+	<!-- === NAVBAR === -->
 	<?php include 'parts/nav.php'; ?>
+	<?php if(isset($_SESSION['unathorized'])): ?>
+		<div class="alert alert-danger text-center all-msg">
+			<strong><?php echo $_SESSION['unathorized']; ?></strong>			
+		</div>
+	<?php endif; ?>
+	<?php unset($_SESSION['unathorized']); ?>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 content">
@@ -121,5 +130,12 @@
 	<script src="assets/js/valid.js" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="assets/js/signup.js" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="assets/js/login.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			setTimeout(function() {
+				$(".all-msg").fadeOut("slow");
+			},2000);
+		})
+	</script>
 </body>
 </html>
