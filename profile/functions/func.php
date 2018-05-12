@@ -12,11 +12,11 @@
 			$photo_link = "<a href=''>Update photo <i class='fa fa-pencil'></i></a>";
 		} else {
 			$photo = "<img src='img/$r->image' class='user_img'>";
-			$photo_link = "<a href=''>Update photo <i class='fa fa-pencil'></i></a>";
+			$photo_link = "<a href='add_photo.php'>Update photo <i class='fa fa-pencil'></i></a>";
 		}
 
 		if(empty($r->bio)) {
-			$bio = "<a href=''>Add Bio <i class='fa fa-plus-circle'></i>";
+			$bio = "<a href='#' data-target='#bio' data-toggle='modal'>Add Bio <i class='fa fa-plus-circle'></i>";
 		} else {
 			$bio = "<a href=''>Update Bio <i class='fa fa-pencil'></i></a>";
 		}
